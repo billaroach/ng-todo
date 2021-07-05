@@ -1,0 +1,12 @@
+<div class="todo-input-wrapper">
+  <input
+    class="todo-input"
+    type="text"
+    placeholder="Add todo title..."
+    [(ngModel)]="title"
+    (keydown.enter)="addTodo()">
+  <button
+    (click)="addTodo()"
+    class="btn-add"
+    >Add Todo</button>
+</div>

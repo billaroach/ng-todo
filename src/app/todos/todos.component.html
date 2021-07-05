@@ -1,0 +1,36 @@
+<div>
+  <ul *ngIf="!loading">
+    <li *ngFor="let todo of todosService.todos; let i = index">
+      <span [class.done]="todo.completed">
+        <input type="checkbox" [checked]="todo.completed" (change)="onChange(todo.id)">
+        <strong>{{i + 1}}</strong> {{todo.title}}
+      </span>
+      <div class="btn-container">
+        <button class="btn-control remove" (click)="removeTodo(todo.id)"></button>
+        <button class="btn-control change" (click)="changeFlag()"></button>
+      </div>
+    </li>
+  </ul>
+
+  <ng-template #noTodos>
+    <p style="text-align: center">No todos now!</p>
+  </ng-template>
+</div>
+<p *ngIf="loading">Loading...</p>
+<div class="todo-input-wrapper" *ngIf="flag">
+  <select [(ngModel)]="selectedValue">
+    <option *ngFor="let todo of todosService.todos; let i = index">
+      {{i + 1}}
+    </option>
+  </select>
+  <input
+    class="todo-input"
+    type="text"
+    placeholder="Update todo title..."
+    [(ngModel)]="updatedTitle">
+  <button
+    (click)="changeTodo()"
+    class="btn-add"
+  >Update Todo</button>
+</div>
+
