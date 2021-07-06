@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Todo, TodosService} from "../shared/todos.service";
+import {faPlusSquare} from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-todo-form',
@@ -9,7 +10,7 @@ import {Todo, TodosService} from "../shared/todos.service";
 export class TodoFormComponent implements OnInit {
 
   title: string = ""
-
+  faPlusSquare = faPlusSquare;
 
   constructor(public todosService: TodosService) { }
 
@@ -22,7 +23,6 @@ export class TodoFormComponent implements OnInit {
       id: Date.now(),
       completed: false,
     }
-
     this.todosService.addTodo(todo);
     this.title = ''
   }

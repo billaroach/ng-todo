@@ -31,13 +31,9 @@ export class TodosService {
     this.todos.push(todo);
   }
 
-  changeTodo(index: number, title: string) {
-    const todo: Todo = {
-      id: this.todos[this.todos.findIndex(el => el.id === index)].id,
-      title: title,
-      completed: this.todos[this.todos.findIndex(el => el.id === index)].completed
-    }
-    this.todos[this.todos.findIndex(el => el.id === index)] = todo;
+  changeTodo(id: number, title: string) {
+    let foundIndex = this.todos.findIndex(x => x.id == id);
+    this.todos[foundIndex].title = title;
   }
 
   removeTodo(id: number) {

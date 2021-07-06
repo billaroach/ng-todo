@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   AppTitle = 'Angular Todo Application';
+  today = Date.now();
 }

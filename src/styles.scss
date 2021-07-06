@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  background-color: #FFFDD0;
+  font-family: "Gotham Pro", sans-serif !important;
+  svg {
+    cursor: pointer;
+  }
+}
+
+body [class^='mat-'], body [class*=' mat-'] {
+  font-family: "Gotham Pro", sans-serif;
+}
+
+input,
+button,
+select,
+textarea,
+h1,
+h2,
+{
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
+}
+
+svg[class*="fa"]:hover {
+  color: violet;
+}

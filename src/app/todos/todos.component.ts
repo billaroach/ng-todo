@@ -1,5 +1,7 @@
-import { Component, OnInit} from '@angular/core';
+import {Input, Component, OnInit} from '@angular/core';
 import {Todo, TodosService} from "../shared/todos.service";
+import {faCircleNotch} from "@fortawesome/free-solid-svg-icons";
+import {delay} from "rxjs/operators";
 
 
 @Component({
@@ -8,35 +10,21 @@ import {Todo, TodosService} from "../shared/todos.service";
   styleUrls: ['./todos.component.scss']
 })
 export class TodosComponent implements OnInit {
-
+  faCircleNotch = faCircleNotch;
   public loading: boolean = true;
-  public flag: boolean = false;
-  public updatedTitle: string = ""
-  public selectedValue: string = ""
+
 
 
   constructor(public todosService: TodosService) { }
 
   ngOnInit(): void {
-    this.todosService.fetchTodos().subscribe(() => {
+    this.todosService.fetchTodos()
+      .pipe(delay(2000))
+      .subscribe(() => {
       this.loading = false;
     })
   }
 
-  onChange(id: number) {
-    this.todosService.onToggle(id);
-  }
 
-  changeTodo() {
-    this.todosService.changeTodo(parseInt(this.selectedValue), this.updatedTitle);
-  }
-
-  removeTodo(id: number) {
-    this.todosService.removeTodo(id);
-  }
-
-  changeFlag() {
-    this.flag = !this.flag;
-  }
 
 }

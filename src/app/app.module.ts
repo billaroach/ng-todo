@@ -7,6 +7,11 @@ import { TodosComponent } from './todos/todos.component';
 import { HttpClientModule} from "@angular/common/http";
 import { TodoFormComponent } from './todo-form/todo-form.component';
 import {FormsModule} from "@angular/forms";
+import { TodoItemComponent } from './todo-item/todo-item.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+
+
 
 
 @NgModule({
@@ -14,14 +19,14 @@ import {FormsModule} from "@angular/forms";
     AppComponent,
     TodosComponent,
     TodoFormComponent,
-
-
-
+    TodoItemComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    FontAwesomeModule,
+    MatCheckboxModule
 
   ],
   providers: [],

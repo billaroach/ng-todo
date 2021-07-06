@@ -1,6 +1,30 @@
 <div class="container">
-  <h1>{{AppTitle}}</h1>
-
+  <div class="day-info">
+    <div class="info-container">
+      <div class="day-info__item day">
+        <span>
+          {{today | date: 'd'}}
+        </span>
+      </div>
+      <div class="day-info__item vertical-container pdl-5">
+        <div>
+          <span>
+            {{today | date: 'LLL'}}
+          </span>
+        </div>
+        <div>
+          <span>
+            {{today | date: 'Y'}}
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="day-info__item day">
+      <span>
+        {{today | date: 'EEEE'}}
+      </span>
+    </div>
+  </div>
   <app-todos></app-todos>
   <app-todo-form></app-todo-form>
 </div>

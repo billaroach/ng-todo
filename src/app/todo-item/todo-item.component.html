@@ -1,0 +1,28 @@
+<div class="todo-container">
+  <span [class.done]="todo.completed">
+<!--        <input type="checkbox" [checked]="todo.completed" (change)="onChange(todo.id)">-->
+    <mat-checkbox [checked]="todo.completed" (change)="onChange(todo.id)"></mat-checkbox>
+<!--    <strong>{{index + 1}}</strong>-->
+         {{todo.title}}
+        <div class="todo-change-container" *ngIf="flag">
+          <input
+            type="text"
+            placeholder="Update todo..."
+            [(ngModel)]="updatedTitle">
+          <div class="icon-wrapper"
+               (click)="changeTodo(todo.id)">
+            <i class="far fa-check-circle fa-lg"></i>
+          </div>
+        </div>
+      </span>
+  <div class="btn-container">
+    <div class="icon-wrapper" (click)="removeTodo(todo.id)">
+      <i class="far fa-2x fa-trash-alt" ></i>
+    </div>
+    <div class="icon-wrapper" (click)="changeFlag()">
+      <i class="fas fa-2x fa-sync-alt" ></i>
+    </div>
+
+  </div>
+</div>
+
